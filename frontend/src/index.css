@@ -1,0 +1,147 @@
+.btn-complaint:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+/* for print */
+
+@media print {
+    .no-break-inside {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+
+    #printArea {
+        page-break-after: always;
+    }
+
+    /* Optional: avoid table head cut off on new page */
+    table,
+    thead,
+    tbody,
+    tr,
+    td,
+    th {
+        page-break-inside: avoid !important;
+    }
+}
+
+@page {
+    margin: 15mm;
+    size: A4;
+}
+
+
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .print-bordered {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    html,
+    body {
+        height: auto !important;
+        overflow: visible !important;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printArea,
+    #printArea * {
+        visibility: visible;
+    }
+
+    #printArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+
+
+/* pagination center */
+
+.custom-pagination .ant-pagination {
+    display: flex;
+    justify-content: center !important;
+    margin-top: 16px;
+}
+
+
+
+
+/* sidebar */
+
+/* Small screens */
+@media (max-width: 991px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 500px;
+        overflow-y: auto;
+        background-color: #fff;
+        transition: left 0.3s ease-in-out;
+        z-index: 9999;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body.sidebar-visible #sidebar {
+        left: 0;
+    }
+
+    .toggle-sidebar-btn {
+        display: inline-block;
+    }
+
+    .sidebar-overlay {
+        display: none;
+    }
+
+    body.sidebar-visible .sidebar-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 9998;
+    }
+}
+
+/* Large screens */
+@media (min-width: 992px) {
+    #sidebar {
+        position: static;
+        left: 0 !important;
+        height: 100%;
+        box-shadow: none;
+    }
+
+    .toggle-sidebar-btn {
+        display: none;
+    }
+
+    .sidebar-overlay {
+        display: none !important;
+    }
+}
