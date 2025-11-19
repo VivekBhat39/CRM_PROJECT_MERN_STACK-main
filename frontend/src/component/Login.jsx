@@ -25,13 +25,14 @@ function Login() {
       console.log("login response :", res.data);
 
       if (res.data.status === "success") {
-        localStorage.setItem("id", res.data.data._id);
+        navigate("/");
+        // localStorage.setItem("id", res.data.data._id);
         localStorage.setItem("email", res.data.data.email);
-        localStorage.setItem("password", res.data.data.password);
-        localStorage.setItem("name", res.data.data.name);
+        // localStorage.setItem("password", res.data.data.password);
+        // localStorage.setItem("name", res.data.data.name);
+        localStorage.setItem("role", res.data.data.role);
         // console.log("show dashboard");
 
-        navigate("/");
       } else {
         setError("Incorrect email or Password");
         setTimeout(() => setError(""), 2000); //Hide after 2 second

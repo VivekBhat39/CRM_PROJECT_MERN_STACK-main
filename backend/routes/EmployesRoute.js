@@ -10,7 +10,7 @@ router.post("/login", async (req, res) => {
 
     // console.log(email, password);
 
-    const emp = await Employe.findOne({ email, password }); //roll id
+    const emp = await Employe.findOne({ email, password }).populate("role_id"); //roll id
 
     // console.log("emp :", emp);
 
@@ -34,6 +34,7 @@ router.post("/login", async (req, res) => {
         name: emp.name,
         email: emp.email,
         password: emp.password, //add other filed to show in ui
+        role : emp.role_id.role
       },
     });
   } catch (error) {

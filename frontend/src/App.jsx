@@ -25,17 +25,16 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Landing />
-              </ProtectedRoute>
-            }
+          <Route path="/" element={
+            <ProtectedRoute>
+              <Landing />
+            </ProtectedRoute>
+          }
           >
             <Route path="" element={<Dashboard />}></Route>
           </Route>
 
+          {/* master route*/}
           <Route
             path="/master"
             element={
@@ -49,6 +48,7 @@ function App() {
             <Route path="/master/role" element={<Role />}></Route>
           </Route>
 
+          {/* complaint route */}
           <Route
             path="/complaint"
             element={
@@ -76,6 +76,7 @@ function App() {
             ></Route>
           </Route>
 
+          {/* quotation route */}
           <Route
             path="/quotation"
             element={
@@ -102,6 +103,7 @@ function App() {
             ></Route>
           </Route>
 
+          {/* amc route */}
           <Route
             path="/amc"
             element={
